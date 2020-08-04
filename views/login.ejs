@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Comptible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/loginpage.css">
+    <title>Login</title>
+   
+  
+</head>
+<body>
+    <div class="login"> 
+        <h1>Login</h1>      
+        <form action="/validate" method="POST">
+            <p> <input type="text" id="username" name="username" placeholder="Username"required> </p>
+            <p> <input type="password" id="password" name="password" placeholder="Password" required> </p>
+            <p class="submit">
+            <label onclick="document.getElementById('id01').style.display='block'" class="lablecolor">Temporary Password</label>    
+            <input type="submit" name="commit" value="Login"></p>
+
+            <p class="error"> 
+                <%if(typeof errormessage != "undefined"){%>
+                    <%= errormessage%> 
+             <% }  %>    
+            </p>
+        </form>
+        </div>
+        <!-- Trigger/Open The Modal -->
+      
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/sendTemporaryPassword" method="post">
+   
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="name" required>
+
+      <label for="psw"><b>Email</b></label>
+      <input type="email" placeholder="Enter Password" name="email" required>
+        
+      <button class="send" type="submit">Send</button>
+      <p class="error"> 
+        <%if(typeof errormessage != "undefined"){%>
+            <%= errormessage%> 
+     <% }  %>    
+    </p>
+    </div>
+
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+</body>
+</html>
