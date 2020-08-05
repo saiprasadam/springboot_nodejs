@@ -49,9 +49,9 @@ router.post('/validate', (req, res) => {
             console.log("Successfully authenticated username: " + data.name);
             console.log("role " + data.role)
             if (data.role == "user") {
-                res.render('homepage.ejs', { username: req.body.username });
+                res.render('homepage.ejs', { username: req.body.username,userid: data.id});
             } else if (data.role == "admin") {
-                res.render('admin_homepage.ejs', { username: req.body.username });
+                res.render('admin_homepage.ejs', { username: req.body.username,userid: data.id });
             }
         }
         else {
